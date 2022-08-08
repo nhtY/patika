@@ -29,10 +29,7 @@ public class MyList<T> {
 	public int getCapacity() {
 		return this.capacity;
 	}
-	
-	private void setCapacity() {
-		
-	}
+
 	
 	public int size() {
 		return this.size;

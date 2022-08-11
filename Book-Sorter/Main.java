@@ -6,11 +6,11 @@ public class Main {
 	public static void main(String[] args) {
 		
 		Book[] books = {
-				new Book("LOTR", 500),
-				new Book("Harry Potter", 400),
-				new Book("Calýkuþu", 600),
-				new Book("Tarih", 120),
-				new Book("Seksen Günde Devri Alem", 250)
+				new Book("LOTR", "J. R. R. Tolkien", "July 29, 1954", 500),
+				new Book("Harry Potter", "J. K. Rowling", "June 26 1997", 400),
+				new Book("Calýkuþu", "Reþat Nuri Güntekin", "1922", 600),
+				new Book("Tarih", "Anonim", "2001",120),
+				new Book("Seksen Günde Devri Alem", "MyAuthor", "1935", 250)
 		};
 		
 		TreeSet<Book> bookSet = new TreeSet<>();

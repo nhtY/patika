@@ -12,8 +12,6 @@ public class Main {
 		ArrayList<Integer> quarter3 = new ArrayList<>();
 		ArrayList<Integer> quarter4 = new ArrayList<>();
 		
-		System.out.println("hi");
-		
 		for(int i=1; i<=10000; i++) {
 			arr.add(i);
 		}
@@ -39,15 +37,19 @@ public class Main {
 			e1.printStackTrace();
 		}
 		
-		Race r1 = new Race(quarter1, even, odd);
-		Race r2 = new Race(quarter2, even, odd);
-		Race r3 = new Race(quarter3, even, odd);
-		Race r4 = new Race(quarter4, even, odd);
+		ArrayList<Integer>[] quarters = (ArrayList<Integer>[]) new ArrayList[]{
+			quarter1,
+			quarter2,
+			quarter3,
+			quarter4
+	};
 		
-		Thread t1 = new Thread(r1);
-		Thread t2 = new Thread(r2);
-		Thread t3 = new Thread(r3);
-		Thread t4 = new Thread(r4);
+		Race race = new Race(quarters, even, odd);
+		
+		Thread t1 = new Thread(race, "T1");
+		Thread t2 = new Thread(race, "T2");
+		Thread t3 = new Thread(race, "T3");
+		Thread t4 = new Thread(race, "T4");
 		
 		t1.start();
 		t2.start();

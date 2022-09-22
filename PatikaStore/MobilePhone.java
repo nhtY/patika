@@ -1,7 +1,6 @@
 import java.util.ArrayList;
 import java.util.Optional;
 import java.util.Scanner;
-import java.util.stream.Stream;
 
 public class MobilePhone extends Product{
 	private static int ID = 1;
@@ -98,6 +97,7 @@ public class MobilePhone extends Product{
 					boolean isAdded = Product.addProduct("Mobile phone", 
 							new MobilePhone(id_, price, discount, amount, name, brand_, ram, memory, screen, battery_, color));
 					System.out.println("Is phone added? " + isAdded);
+					break;
 					
 				default:
 					break;
@@ -155,13 +155,14 @@ public class MobilePhone extends Product{
 	}
 	
 	private static void filterByBrand(String brand) {
+		
+		putHorizontalLine(106);
+		System.out.format("\n|%2s| %-20s| %-15s| %-15s| %-10s| %-10s| %-8s| %-10s|\n", "ID", "Product Name", "Brand", "Price", "Amount", "Screen", "RAM", "Memory");
+		putHorizontalLine(106);
+		
 		Product.getProducts("Mobile phone").stream()
 				.filter(p-> p.getBrand().getName().toLowerCase().equals(brand.toLowerCase()))
 				.forEach(p -> {
-					putHorizontalLine(106);
-					System.out.format("\n|%2s| %-20s| %-15s| %-15s| %-10s| %-10s| %-8s| %-10s|\n", "ID", "Product Name", "Brand", "Price", "Amount", "Screen", "RAM", "Memory");
-					putHorizontalLine(106);
-					
 					System.out.format("\n|%-2d| %-20s| %-15s| %-15s| %-10d| %-10.1f| %-8s| %-10s|\n", 
 							p.getId(), 
 							p.getName(), 

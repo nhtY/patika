@@ -38,7 +38,7 @@ public class PatikaStore {
 				
 				switch (category) {
 				case "Notebook":
-					System.out.println("List the Notebook operations");
+					Notebook.notebookOperations();
 					break;
 				case "Mobile phone":
 					System.out.println();

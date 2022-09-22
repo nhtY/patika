@@ -10,6 +10,8 @@ public class MobilePhone extends Product{
 	public MobilePhone(int id, double price, int discountRate, int stockAmount, String name,
 			Brand brand, int rAM, int memory, double screenSize, int battery, String color) {
 		super(id, price, discountRate, stockAmount, name, brand, rAM, memory, screenSize);
+		
+		// set the category as Mobile phone
 		this.setCategory("Mobile phone");
 	}
 	
@@ -33,7 +35,8 @@ public class MobilePhone extends Product{
 		this.color = color;
 	}
 
-
+	// when user wants to see mobile phone related operations
+	// show him: list all, filter by brand, filter by id, delete, add, go back
 	public static boolean phoneOperations() {
 		
 		Scanner scanner = new Scanner(System.in);
@@ -82,6 +85,8 @@ public class MobilePhone extends Product{
 							+ "| Price | Discount Rate | Stock Amount | Name | Brand Name | RAM | Memory | Screen Size | Battery Capacity | Color |");
 					int id_ = getID(); 
 					scanner.nextLine();
+					
+					// get the inputs to create a new mobile phone
 					String[] info = scanner.nextLine().split(", ");
 					double price = Double.parseDouble(info[0]);
 					int discount = Integer.parseInt(info[1]);
@@ -94,6 +99,7 @@ public class MobilePhone extends Product{
 					int battery_ = Integer.parseInt(info[8]);
 					String color = info[9];
 					
+					// add new mobile phone to the related product list.
 					boolean isAdded = Product.addProduct("Mobile phone", 
 							new MobilePhone(id_, price, discount, amount, name, brand_, ram, memory, screen, battery_, color));
 					System.out.println("Is phone added? " + isAdded);
@@ -106,13 +112,17 @@ public class MobilePhone extends Product{
 		}
 	}
 	
+	// lisst all the mobile phones:
 	public static void listProducts() {
+		// get the products from the Mobile phone category
 		ArrayList<Product> phones = Product.getProducts("Mobile phone");
 		
+		// table header:
 		putHorizontalLine(94);
 		System.out.format("\n|%2s| %-20s| %-15s| %-15s| %-10s| %-10s| %-8s|\n", "ID", "Product Name", "Brand", "Price", "Amount", "Screen", "RAM");
 		putHorizontalLine(94);
 		
+		// fill the table
 		for(Product p : phones) {
 			System.out.format("\n|%-2d| %-20s| %-15s| %-15s| %-10d| %-10.1f| %-8s|\n", 
 					p.getId(), 
@@ -127,6 +137,7 @@ public class MobilePhone extends Product{
 		}
 	}
 	
+	// fetch the mobile phone with entered id
 	private static void filterByID(int id) {
 		Optional<Product> phones = Product.getProducts("Mobile phone").stream()
 				.filter(p-> p.getId() == id).findFirst();
@@ -136,6 +147,7 @@ public class MobilePhone extends Product{
 		else {
 			MobilePhone p = (MobilePhone) phones.get();
 			
+			// show the information of the mobile phone in table form
 			putHorizontalLine(106);
 			System.out.format("\n|%2s| %-20s| %-15s| %-15s| %-10s| %-10s| %-8s| %-10s|\n", "ID", "Product Name", "Brand", "Price", "Amount", "Screen", "RAM", "Memory");
 			putHorizontalLine(106);
@@ -154,6 +166,7 @@ public class MobilePhone extends Product{
 		}
 	}
 	
+	// fetch the mobile phones whose brand names are the entered brand name
 	private static void filterByBrand(String brand) {
 		
 		putHorizontalLine(106);
@@ -179,6 +192,7 @@ public class MobilePhone extends Product{
 		
 	}
 	
+	// delete the mobile phone with entered id:
 	private static boolean delete(int id) {
 		ArrayList<Product> phones = Product.getProducts("Mobile phone");
 		Optional<Product> phone = phones.stream()
@@ -192,10 +206,12 @@ public class MobilePhone extends Product{
 		return false;
 	}
 	
+	// for bulding a table view, put horizontal line:
 	private static void putHorizontalLine(int len) {
 		for(int i=0; i<len; i++) System.out.print("-");
 	}
 	
+	// while creating a new mobile phone, give it a unique id.
 	public static int getID() {
 		return ID ++;
 	}

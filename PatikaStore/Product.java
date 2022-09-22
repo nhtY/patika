@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public abstract class Product {
+	
 	private int id;
 	private double price;
 	private int discountRate;
@@ -13,6 +14,7 @@ public abstract class Product {
 	private double screenSize;
 	private String category;
 	
+	// There will be products in advance when program started
 	public static HashMap<String, ArrayList<Product>> productCategories = new HashMap<>();
 	
 	static {
@@ -107,7 +109,7 @@ public abstract class Product {
 		return this.category;
 	}
 	
-	
+	// add a new product by its category name
 	public static boolean addProduct(String category, Product product) {
 		ArrayList<Product> products = Product.getProducts(category);
 		if(products == null) {
@@ -117,19 +119,15 @@ public abstract class Product {
 		return products.add(product);
 	}
 	
+	// if needed, create a new category
 	public static boolean addCategory(String category) {
 		return productCategories.put(category, new ArrayList<Product>()) == null;
 	}
 	
+	// get all the products by category name
 	public static ArrayList<Product> getProducts(String category){
 		return productCategories.get(category);
 	}
 	
-	/*
-	public static int getID(String category) {
-		ArrayList<Product> products = Product.getProducts(category);
-		return products.size() + 1;
-	}
-	*/
 	
 }

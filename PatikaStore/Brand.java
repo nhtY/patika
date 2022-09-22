@@ -64,6 +64,8 @@ public class Brand implements Comparable<Brand>{
 		forEach(b -> System.out.println("- " + b.getName()));
 	}
 	
+	// if a brand with given name exists, return that brand.
+	// otherwise, create a new brand with the given name.
 	public static Brand getBrand(String name) {
 		Optional<Brand> element =  brandList.stream()
 		.filter(b -> b.getName().equals(name))
@@ -77,7 +79,7 @@ public class Brand implements Comparable<Brand>{
 		}
 	}
 
-
+	// to sort the brands by their name override compareTo method of Comparable interface
 	@Override
 	public int compareTo(Brand o) {
 		

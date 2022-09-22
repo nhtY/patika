@@ -3,6 +3,7 @@ import java.util.Optional;
 import java.util.Scanner;
 
 public class Notebook extends Product{
+	// unique id for the notebooks
 	private static int ID = 0;
 
 	public Notebook(int id, double price, int discountRate, int stockAmount, String name, Brand brand,
@@ -11,17 +12,20 @@ public class Notebook extends Product{
 		this.setCategory("Notebook");
 	}
 	
+	// when craeting a new notebook, get a unique id for it
 	public static int getID() {
 		return ID ++;
 	}
 	
-
+	// print the operations for notebook category
 	public static boolean notebookOperations() {
 		
 		Scanner scanner = new Scanner(System.in);
+		// user choice:
 		int choice = 0;
 		
 		while(true) {
+			// print choices
 			System.out.println("\n---- Notebook ----\n");
 			System.out.print("1- List All Notebooks"
 					+ "\n2- Filter by id"
@@ -30,6 +34,8 @@ public class Notebook extends Product{
 					+ "\n5- Add product"
 					+ "\n0- Go back"
 					+ "\nEnter your choice: ");
+
+			// get the user input
 			choice = scanner.nextInt();
 			
 			if(choice == 0) return true;
@@ -63,6 +69,8 @@ public class Notebook extends Product{
 					System.out.println("Enter the followings separated by a comma (, )\n"
 							+ "| Price | Discount Rate | Stock Amount | Name | Brand Name | RAM | Memory | Screen Size |");
 					int id_ = getID(); 
+			
+					// get specifications of the new notebook from user:
 					scanner.nextLine();
 					String[] info = scanner.nextLine().split(", ");
 					double price = Double.parseDouble(info[0]);
@@ -74,6 +82,7 @@ public class Notebook extends Product{
 					int memory = Integer.parseInt(info[6]);
 					double screen = Double.parseDouble(info[7]);
 					
+					// create a new notebook
 					boolean isAdded = Product.addProduct("Notebook", 
 							new Notebook(id_, price, discount, amount, name, brand_, ram, memory, screen));
 					System.out.println("Is notebook added? " + isAdded);
@@ -85,13 +94,16 @@ public class Notebook extends Product{
 		}
 	}
 	
+	// list all the notebooks
 	public static void listProducts() {
 		ArrayList<Product> notebooks = Product.getProducts("Notebook");
 		
+		// table header
 		putHorizontalLine(94);
 		System.out.format("\n|%2s| %-20s| %-15s| %-15s| %-10s| %-10s| %-8s|\n", "ID", "Product Name", "Brand", "Price", "Amount", "Screen", "RAM");
 		putHorizontalLine(94);
 		
+		// fill the table
 		for(Product p : notebooks) {
 			System.out.format("\n|%-2d| %-20s| %-15s| %-15s| %-10d| %-10.1f| %-8s|\n", 
 					p.getId(), 
@@ -106,6 +118,7 @@ public class Notebook extends Product{
 		}
 	}
 	
+	// fetch the notebooks by id
 	private static void filterByID(int id) {
 		Optional<Product> notebooks = Product.getProducts("Notebook").stream()
 				.filter(p-> p.getId() == id).findFirst();
@@ -115,6 +128,7 @@ public class Notebook extends Product{
 		else {
 			Notebook p = (Notebook) notebooks.get();
 			
+			// show the information of the fetched notebook in table view
 			putHorizontalLine(106);
 			System.out.format("\n|%2s| %-20s| %-15s| %-15s| %-10s| %-10s| %-8s| %-10s|\n", "ID", "Product Name", "Brand", "Price", "Amount", "Screen", "RAM", "Memory");
 			putHorizontalLine(106);
@@ -133,8 +147,10 @@ public class Notebook extends Product{
 		}
 	}
 	
+	// fetch the notebooks by brand name
 	private static void filterByBrand(String brand) {
 		
+		// show them in table form
 		putHorizontalLine(106);
 		System.out.format("\n|%2s| %-20s| %-15s| %-15s| %-10s| %-10s| %-8s| %-10s|\n", "ID", "Product Name", "Brand", "Price", "Amount", "Screen", "RAM", "Memory");
 		putHorizontalLine(106);
@@ -158,6 +174,7 @@ public class Notebook extends Product{
 		
 	}
 	
+	// delete the notebook with given id
 	private static boolean delete(int id) {
 		ArrayList<Product> notebooks = Product.getProducts("Notebook");
 		Optional<Product> nb = notebooks.stream()
@@ -171,6 +188,7 @@ public class Notebook extends Product{
 		return false;
 	}
 	
+	// draw horizontal lines for the table
 	private static void putHorizontalLine(int len) {
 		for(int i=0; i<len; i++) System.out.print("-");
 	}

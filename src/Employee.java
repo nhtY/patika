@@ -57,7 +57,7 @@ public class Employee {
     // other methods:
 
     // calculate the tax applied to the salary
-    private double tax(){
+    public double tax(){
 
         if (this.salary > 1000){
             return this.salary * 0.03;
@@ -67,7 +67,7 @@ public class Employee {
     }
 
     // calculate bonus amount according to extra working hours
-    private double bonus(){
+    public double bonus(){
 
         if (this.workHours > 40){
             double extraHours = this.workHours - 40;
@@ -79,8 +79,8 @@ public class Employee {
     // raise the employee's salary according to how many years s/he's been working.
     public void raiseSalary(){
 
-        // apply the addition to the salary without bonus.
-        this.salary -= bonus();
+
+        this.salary -= tax();
 
         // calculate how many years s/he has been working
         int years = 2021 - this.hireYear;
@@ -96,6 +96,52 @@ public class Employee {
             // a raise of 15%:
             this.salary *= 1.15;
         }
-        this.salary = this.salary - tax();
+
     }
+
+    @Override
+    public String toString() {
+        StringBuilder str = new StringBuilder();
+        str.append("Name: " + this.name);
+        str.append("\nSalary: " + this.salary);
+
+        double adjustedSalary = this.salary - tax() + bonus();
+        str.append(String.format("\nAdjusted salary: %.3f --> (tax = %.3f | bonus = %.3f)"
+                        , adjustedSalary, tax(), bonus())
+                );
+
+        str.append("\nWeekly Work Hours: " + this.workHours);
+        str.append("\nHire Year: " + this.hireYear);
+
+        return str.toString();
+    }
+
+    public static void main(String[] args) {
+        // create an employee object:
+        Employee employee = new Employee("Ahmet Yılmaz", 500, 30, 2016);
+        // print employee's data
+        System.out.println(employee.toString());
+
+        System.out.println("*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/");
+
+        // When salary is greater than 1000, see what happens:
+        employee.setSalary(2000); // 2000 * 0.03 = 60 --> tax
+        // print employee's data
+        System.out.println(employee.toString());
+
+        System.out.println("*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/");
+
+        // When workHours is greater than 40, see what happens:
+        employee.setWorkHours(45); // 5 * 30 = 150 --> bonus
+        // print employee's data
+        System.out.println(employee.toString());
+
+        System.out.println("*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/");
+
+        // When raise the salary, see what happens:
+        employee.raiseSalary(); // 2021 - 2016 = 5 --> 5% raise rate
+        // print employee's data
+        System.out.println(employee.toString());
+    }
+
 }

@@ -1,6 +1,6 @@
 # Default ignored files
 /shelf/
-/workspace.xml
+/.idea/workspace.xml
 *.xml
 *iml
-/PracticumCase1/*iml
+/.gitignore

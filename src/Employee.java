@@ -99,6 +99,7 @@ public class Employee {
 
     }
 
+    // Preapare a summary of the instance that will be craeted.
     @Override
     public String toString() {
         StringBuilder str = new StringBuilder();
@@ -116,6 +117,7 @@ public class Employee {
         return str.toString();
     }
 
+    // Create an instance of the class in the main method to test how the methods work.
     public static void main(String[] args) {
         // create an employee object:
         Employee employee = new Employee("Ahmet Yılmaz", 500, 30, 2016);

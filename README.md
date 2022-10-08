@@ -36,4 +36,3 @@ toplam maaş değerlerini konsola yazdırmanızı bekliyoruz.
 * toString() : Çalışana ait bilgileri ekrana bastıracaktır.
   Not: raiseSalary() hesaplarken vergi ve bonusları dikkate almalısınız.
 
-

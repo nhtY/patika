@@ -1,20 +1,28 @@
 
 # Case Catalog
 
-Course Name ebebek Java&QA Practicum
-Type  First Case
-Language  Java
-Case Detail
+Course Name: ebebek Java&QA Practicum
+
+Type:  First Case
+
+Language:  Java
+
+Case Detail:
+
 Java'da "Employee" adında fabrika çalışanlarını temsil eden ve metotları ile çalışanların maaşlarını hesaplayan bir sınıf yazmalısınız. 
 Bu sınıf 4 nitelik ve 5 metoda sahip olacaktır. 
 Sizden konsol çıktısı halinde Adı, maaşı, çalışma saati, başlangıç yılı, vergi, bonus, maaş artışı, vergi ve bonuslarla birlikte maaş, 
 toplam maaş değerlerini konsola yazdırmanızı bekliyoruz.
+
 # Sınıfın Nitelikleri
+
 * name : Çalışanın adı ve soyadı
 * salary : Çalışanın maaşı
 * workHours : Haftalık çalışma saati
 * hireYear : İşe başlangıç yılı
+
 # Sınıfın Metotları
+
 * Employee(name,salary,workHours,hireYear) : Kurucu metot olup 4 parametre alacaktır.
 * tax() : Maaşa uygulanan vergiyi hesaplayacaktır.
     Çalışanın maaşı 1000 TL'den az ise vergi uygulanmayacaktır.

@@ -28,7 +28,7 @@ public class BodyMassIndexCalculator {
 	
 	public static void main(String[] args) {
 		
-		// take user input
+		// Create a Scanner object to take user inputs
 		Scanner scanner = new Scanner(System.in);
 		
 		// take the height input in meter

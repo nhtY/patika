@@ -7,7 +7,7 @@
 * @author  Nihat Yalcin
 */
 
-package odev2;
+package hafta1.odev2;
 
 import java.util.LinkedHashMap;
 import java.util.Scanner;

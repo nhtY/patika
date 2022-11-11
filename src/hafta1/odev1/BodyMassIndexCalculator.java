@@ -8,7 +8,7 @@
 */
 
 
-package odev1;
+package hafta1.odev1;
 
 import java.util.Scanner;
 

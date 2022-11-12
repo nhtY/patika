@@ -22,8 +22,8 @@ public class FindMaxMin {
 		int N = scanner.nextInt();
 		
 		// initialize the max and min values:
-		int max = Integer.MIN_VALUE; // any value bigger than this, updates max.
-		int min = Integer.MAX_VALUE; // any value smaller than this, updates min.
+		int max = Integer.MIN_VALUE; // any value bigger than this updates max.
+		int min = Integer.MAX_VALUE; // any value smaller than this updates min.
 		
 		// keep the current number in a variable:
 		int current;

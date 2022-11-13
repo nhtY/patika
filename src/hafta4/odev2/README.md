@@ -1,4 +1,4 @@
-Java dilinde, dizideki elemanları küçükten büyüğe sıralayan programı yazınız. Dizinin boyutunu ve dizinin elemanlarını kullanıcıdan alınız.
+Java dilinde, dizideki elemanları küçükten büyüğe sıralayan program. Dizinin boyutunu ve dizinin elemanlarını kullanıcıdan alır.
 
 Senaryo
 Dizinin boyutu n : 5

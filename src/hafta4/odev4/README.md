@@ -10,18 +10,22 @@ Matrisin transpozunu (devriğini) almak, matrisin aynı numaralı satırları il
 
 Senaryo
 Matris : 
+
 2    3    4    
 5    6    4    
 Transpoze : 
+
 2    5    
 3    6    
 4    4    
 
 
-Matris : 
+Matris :
+ 
 1    2    3    
 4    5    6    
 Transpoze : 
+
 1    4    
 2    5    
 3    6    

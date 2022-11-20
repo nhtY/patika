@@ -150,54 +150,53 @@ Patika ekibi elektronik eşyaların satıldığı bir sanal bir mağaza açmaya 
 
 
 
-## Marka Listeleme Örneği
+## Örnek Çıktılar
 
 
 
 ```text
-PatikaStore Ürün Yönetim Paneli !
-1 - Notebook İşlemleri
-2 - Cep Telefonu İşlemleri
-3 - Marka Listele
-0 - Çıkış Yap
-Tercihiniz : 3
-Markalarımız
---------------
-- Apple
-- Asus
-- Casper
-- HP
-- Huawei
-- Lenovo
-- Monster
-- Samsung
-- Xiaomi
+
+<-- Patika | Product Management Panel -->
+1- Notebook Operations
+2- Mobile phone Operations
+3- List the Brands
+0- Exit
+Enter your choice: 2
 ```
-
-##  
-
-## Ürün Listeleme Örneği
-
 
 
 ```text
-Notebook Listesi
+---- Mobile Phone ----
 
-----------------------------------------------------------------------------------------------------
-| ID | Ürün Adı                      | Fiyat     | Marka     | Depolama  | Ekran     | RAM         |
-----------------------------------------------------------------------------------------------------
-| 1  | HUAWEI Matebook 14            | 7000.0 TL | Huawei    | 512       | 14.0      | 16          |
-| 2  | LENOVO V14 IGL                | 3699.0 TL | Lenovo    | 1024      | 14.0      | 8           |
-| 3  | ASUS Tuf Gaming               | 8199.0 TL | Asus      | 2048      | 15.6      | 32          |
-----------------------------------------------------------------------------------------------------
-
-Cep Telefonu Listesi
-
---------------------------------------------------------------------------------------------------------------------------------------
-| ID | Ürün Adı                      | Fiyat     | Marka     | Depolama  | Ekran     | Kamera    | Pil       | RAM       | Renk      | 
---------------------------------------------------------------------------------------------------------------------------------------
-| 1  | SAMSUNG GALAXY A51            | 3199.0 TL | Samsung   | 128       | 6.5       | 32        | 4000.0    | 6         | Siyah     | 
-| 2  | iPhone 11 64 GB               | 7379.0 TL | Apple     | 64        | 6.1       | 5         | 3046.0    | 6         | Mavi      | 
-| 3  | Redmi Note 10 Pro 8GB         | 4012.0 TL | Xiaomi    | 128       | 6.5       | 35        | 4000.0    | 12        | Beyaz     | 
------------------------------------------------------------------------------------------------------
+1- List All Mobile Phones
+2- Filter by id
+3- Filter by brand
+4- Delete by ID
+5- Add product
+0- Go back
+Enter your choice: 1
 ```
+
+```text
+----------------------------------------------------------------------------------------------------------------------
+|ID| Product Name        | Brand          | Price          | Amount    | Screen    | RAM     | Memory    | Color     |
+----------------------------------------------------------------------------------------------------------------------
+|1 | Samsung S-5         | Samsung        | 2500,0 TL      | 25        | 5,5       | 8 GB    | 64 GB     | null      |
+----------------------------------------------------------------------------------------------------------------------
+|2 | Casper A3           | Casper         | 3000,0 TL      | 18        | 4,8       | 8 GB    | 128 GB    | null      |
+----------------------------------------------------------------------------------------------------------------------
+
+```
+
+```text
+---- Mobile Phone ----
+
+1- List All Mobile Phones
+2- Filter by id
+3- Filter by brand
+4- Delete by ID
+5- Add product
+0- Go back
+Enter your choice: 1
+```
+

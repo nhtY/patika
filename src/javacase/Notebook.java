@@ -7,14 +7,27 @@ import java.util.Scanner;
 public class Notebook extends Product {
 	// unique id for the notebooks
 	private static int ID = 0;
-
-	public Notebook(int id, double price, int discountRate, int stockAmount, String name, Brand brand, int rAM,
-			int memory, double screenSize) {
-		super(id, price, discountRate, stockAmount, name, brand, rAM, memory, screenSize);
-		this.setCategory("Notebook");
+	
+	// notebook list
+	private static ArrayList<Notebook> notebooks = new ArrayList<>();
+	
+	// create some notebooks initially
+	static {
+		Notebook notebook1 = new Notebook(getID(), 18000, 10, 12, "Monstter a-75", Brand.getBrand("Monster"), 16, 256, 15.5);
+		Notebook notebook2 = new Notebook(getID(), 25000, 10, 21, "Macbook M-8", Brand.getBrand("Apple"), 16, 256, 14.5);
+		
+		notebooks.add(notebook1);
+		notebooks.add(notebook2);
 	}
 
-	// when craeting a new notebook, get a unique id for it
+	// constructor method
+	public Notebook(int id, double price, int discountRate, int stockAmount, String name, Brand brand, int ram,
+			int memory, double screenSize) {
+		
+		super(id, price, discountRate, stockAmount, name, brand, ram, memory, screenSize);
+	}
+
+	// when creating a new notebook, get a unique id for it
 	public static int getID() {
 		return ID++;
 	}
@@ -81,7 +94,7 @@ public class Notebook extends Product {
 					double screen = Double.parseDouble(info[7]);
 
 					// create a new notebook
-					boolean isAdded = Product.addProduct("Notebook",
+					boolean isAdded = Notebook.add(
 							new Notebook(id_, price, discount, amount, name, brand_, ram, memory, screen));
 					System.out.println("Is notebook added? " + isAdded);
 					break;
@@ -89,13 +102,11 @@ public class Notebook extends Product {
 					break;
 				}
 			}
-			scanner.close();
 		}
 	}
 
 	// list all the notebooks
 	public static void listProducts() {
-		ArrayList<Product> notebooks = Product.getProducts("Notebook");
 
 		// table header
 		putHorizontalLine(94);
@@ -104,7 +115,7 @@ public class Notebook extends Product {
 		putHorizontalLine(94);
 
 		// fill the table
-		for (Product p : notebooks) {
+		for (Notebook p : notebooks) {
 			System.out.format("\n|%-2d| %-20s| %-15s| %-15s| %-10d| %-10.1f| %-8s|\n", p.getId(), p.getName(),
 					p.getBrand().getName(), String.format("%.1f TL", p.getPrice()), p.getStockAmount(),
 					p.getScreenSize(), String.format("%d GB", p.getRAM()));
@@ -114,12 +125,12 @@ public class Notebook extends Product {
 
 	// fetch the notebooks by id
 	private static void filterByID(int id) {
-		Optional<Product> notebooks = Product.getProducts("Notebook").stream().filter(p -> p.getId() == id).findFirst();
+		Optional<Notebook> notebooks_ = Notebook.notebooks.stream().filter(p -> p.getId() == id).findFirst();
 
-		if (notebooks.isEmpty())
+		if (notebooks_.isEmpty())
 			System.out.println("No notebook found!");
 		else {
-			Notebook p = (Notebook) notebooks.get();
+			Notebook p = (Notebook) notebooks_.get();
 
 			// show the information of the fetched notebook in table view
 			putHorizontalLine(106);
@@ -143,7 +154,7 @@ public class Notebook extends Product {
 				"Price", "Amount", "Screen", "RAM", "Memory");
 		putHorizontalLine(106);
 
-		Product.getProducts("Notebook").stream()
+		notebooks.stream()
 				.filter(p -> p.getBrand().getName().toLowerCase().equals(brand.toLowerCase())).forEach(p -> {
 					System.out.format("\n|%-2d| %-20s| %-15s| %-15s| %-10d| %-10.1f| %-8s| %-10s|\n", p.getId(),
 							p.getName(), p.getBrand().getName(), String.format("%.1f TL", p.getPrice()),
@@ -154,11 +165,15 @@ public class Notebook extends Product {
 		;
 
 	}
+	
+	// add a notebook
+	private static boolean add(Notebook notebook) {
+		return notebooks.add(notebook);
+	}
 
 	// delete the notebook with given id
 	private static boolean delete(int id) {
-		ArrayList<Product> notebooks = Product.getProducts("Notebook");
-		Optional<Product> nb = notebooks.stream().filter(n -> n.getId() == id).findFirst();
+		Optional<Notebook> nb = notebooks.stream().filter(n -> n.getId() == id).findFirst();
 
 		if (!nb.isEmpty()) {
 			Product n = nb.get();

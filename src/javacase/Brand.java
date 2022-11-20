@@ -7,8 +7,11 @@ public class Brand implements Comparable<Brand>{
 	private static int ID = 1;
 	private int id;
 	private String name;
+	
+	// brand list
 	private static ArrayList<Brand> brandList = new ArrayList<>();
 	
+	// initialize the brands
 	static {
 		brandList.add(new Brand(ID++, "Samsung"));
 		brandList.add(new Brand(ID++, "Lenovo"));
@@ -21,12 +24,14 @@ public class Brand implements Comparable<Brand>{
 		brandList.add(new Brand(ID++, "Monster"));
 	}
 	
+	// constructor
 	public Brand(int id, String name) {
 		this.id = id;
 		this.name = name;
 	}
 	
 	
+	// Getters and Setters
 	
 	public int getId() {
 		return id;
@@ -51,11 +56,12 @@ public class Brand implements Comparable<Brand>{
 	}
 
 
-
+	// add a new brand
 	public static boolean addBrand(String name) {
 		return brandList.add(new Brand(ID++, name));
 	}
 	
+	// list the brands we have
 	public static void listBrands(){
 		// to be sorted, it is needed to be comparable for the object
 		// That is why, the class implements Comparable
@@ -81,7 +87,7 @@ public class Brand implements Comparable<Brand>{
 		}
 	}
 
-	// to sort the brands by their name override compareTo method of Comparable interface
+	// to sort the brands by their names override compareTo method of Comparable interface
 	@Override
 	public int compareTo(Brand o) {
 		

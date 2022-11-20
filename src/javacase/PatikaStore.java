@@ -1,11 +1,23 @@
 package javacase;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
+// the main program we use for the operations:
 public class PatikaStore {
 	private Scanner scanner = new Scanner(System.in);
 	
+	// the product categories we have: notebook, mobile phone etc.. we can add more
+	private static ArrayList<String> productCategories = new ArrayList<>();
+	
+	// initialize the categories
+	static {
+		productCategories.add("Notebook");
+		productCategories.add("Mobile phone");
+	}
+	
+	// list the operations on console
 	public void listMainOperations() {
 		// order of the choices:
 		int choiceIndex = 0;
@@ -21,7 +33,7 @@ public class PatikaStore {
 			choiceIndex = 0;
 			
 			// print choices for categories, and fill the variable 'categories'
-			for(String key:Product.productCategories.keySet()) {
+			for(String key : productCategories) {
 				choiceIndex += 1;
 				System.out.println(choiceIndex + "- " + key + " Operations");
 				categories.put(choiceIndex, key);
@@ -43,7 +55,7 @@ public class PatikaStore {
 			}
 			
 			if(choice == 0) {
-				System.exit(0);
+				System.exit(0); // end the program
 			}else if(0<choice && choice<choiceIndex) {
 				String category = categories.get(choice);
 				

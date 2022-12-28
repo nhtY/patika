@@ -1,0 +1,107 @@
+
+.container {
+    display: block;
+    margin-top: 0em;
+    margin-block-end: 1em;
+    min-width: 675px;
+}
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+}
+
+.center.logo {
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+}
+
+div.logo > img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.search-area {
+    background-color: rgb(238, 238, 238);
+    
+}
+
+.search-box {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    padding: 8px;
+}
+
+div.buttons {
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%; 
+}
+
+.input-text {
+    width: 80%;
+    margin: 4px;
+    max-width: 450px;
+}
+
+input.btn-search {
+    float: center;
+    margin-right: 4px;
+}
+
+input.btn-feeling-lucky {
+    float: center;
+}
+
+.clear {
+    clear: both;
+}
+
+
+.links {
+    background-color: blueviolet;
+}
+
+.link-box {
+    height: 100px;
+    display: block;
+    text-align: center;
+}
+
+.vertical-center {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.left {
+    background-color:  rgb(126, 229, 218);
+    float: left;
+    width: 39%;
+    margin-right: 1%;
+}
+
+.middle {
+    background-color: rgb(112, 204, 194);
+    float: left;
+    width: 20%;
+}
+
+.right {
+    background-color: rgb(98, 179, 170);
+    float: left;
+    width: 39%;
+    margin-left: 1%;
+}
+
+.email {
+    width: 140px;
+}
+
+.footer {
+    text-align: center;
+}
